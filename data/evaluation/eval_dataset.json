@@ -1,0 +1,122 @@
+[
+  {
+    "question": "How many days do I have to return a product for a refund?",
+    "ground_truth": "You have 30 days from the date of purchase to return a product for a full refund.",
+    "relevant_context": "The company's refund policy allows customers to return any product within 30 days of purchase for a full refund.",
+    "relevant_source": "company_policies.txt"
+  },
+  {
+    "question": "How long does it take to process a refund?",
+    "ground_truth": "Refunds are processed within 5 to 7 business days after the returned item is received.",
+    "relevant_context": "Refunds are processed within 5 to 7 business days after the returned item is received by our warehouse.",
+    "relevant_source": "company_policies.txt"
+  },
+  {
+    "question": "Are digital products refundable?",
+    "ground_truth": "No, digital products and gift cards are non-refundable.",
+    "relevant_context": "Digital products and gift cards are non-refundable.",
+    "relevant_source": "company_policies.txt"
+  },
+  {
+    "question": "How long is the warranty on hardware products?",
+    "ground_truth": "Hardware products come with a one-year manufacturer warranty.",
+    "relevant_context": "All hardware products come with a one-year manufacturer warranty covering manufacturing defects.",
+    "relevant_source": "company_policies.txt"
+  },
+  {
+    "question": "Does the warranty cover accidental damage?",
+    "ground_truth": "No, the warranty does not cover accidental damage, water damage, or normal wear and tear.",
+    "relevant_context": "The warranty does not cover accidental damage, water damage, or normal wear and tear.",
+    "relevant_source": "company_policies.txt"
+  },
+  {
+    "question": "How many paid leave days do full-time employees get per year?",
+    "ground_truth": "Full-time employees are entitled to 20 paid leave days per calendar year.",
+    "relevant_context": "Full-time employees are entitled to 20 paid leave days per calendar year, in addition to public holidays.",
+    "relevant_source": "company_policies.txt"
+  },
+  {
+    "question": "How many unused leave days can be carried over to the next year?",
+    "ground_truth": "Up to a maximum of 5 unused leave days can be carried over.",
+    "relevant_context": "Unused leave days can be carried over to the next year up to a maximum of 5 days.",
+    "relevant_source": "company_policies.txt"
+  },
+  {
+    "question": "How long is maternity leave at the company?",
+    "ground_truth": "Maternity leave is 26 weeks, fully paid.",
+    "relevant_context": "Maternity leave is 26 weeks and paternity leave is 2 weeks, both fully paid.",
+    "relevant_source": "company_policies.txt"
+  },
+  {
+    "question": "What are the standard working hours?",
+    "ground_truth": "Standard working hours are 9:00 AM to 6:00 PM, Monday through Friday, with a one-hour lunch break.",
+    "relevant_context": "Standard working hours are from 9:00 AM to 6:00 PM, Monday through Friday, with a one-hour lunch break.",
+    "relevant_source": "company_policies.txt"
+  },
+  {
+    "question": "How many days per week can employees work remotely?",
+    "ground_truth": "Employees may work remotely up to 3 days per week.",
+    "relevant_context": "Employees may work remotely up to 3 days per week. Fully remote arrangements require director-level approval.",
+    "relevant_source": "company_policies.txt"
+  },
+  {
+    "question": "Within how many days must employees submit expense receipts?",
+    "ground_truth": "Employees must submit receipts within 30 days of the expense.",
+    "relevant_context": "Employees must submit receipts within 30 days of the expense.",
+    "relevant_source": "company_policies.txt"
+  },
+  {
+    "question": "Where is the company's headquarters located?",
+    "ground_truth": "The company's headquarters is located in Chennai, Tamil Nadu, India.",
+    "relevant_context": "The company's headquarters is located in Chennai, Tamil Nadu, India.",
+    "relevant_source": "company_policies.txt"
+  },
+  {
+    "question": "How much storage does the Pro plan of CloudSync Pro include?",
+    "ground_truth": "The Pro plan includes 1TB of storage for $12 per month.",
+    "relevant_context": "The Pro plan at $12 per month with 1TB storage.",
+    "relevant_source": "product_faq.txt"
+  },
+  {
+    "question": "What encryption does CloudSync Pro use to protect files?",
+    "ground_truth": "CloudSync Pro uses AES-256 encryption both during transfer and while stored on servers.",
+    "relevant_context": "All files are encrypted using AES-256 encryption both during transfer and while stored on our servers.",
+    "relevant_source": "product_faq.txt"
+  },
+  {
+    "question": "How many days of version history does the Basic plan keep?",
+    "ground_truth": "The Basic plan keeps 7 days of version history.",
+    "relevant_context": "CloudSync Pro keeps up to 30 days of version history for every file on the Pro and Business plans, and 7 days on the Basic plan.",
+    "relevant_source": "product_faq.txt"
+  },
+  {
+    "question": "What happens to files after I cancel my CloudSync Pro subscription?",
+    "ground_truth": "Files remain accessible in read-only mode for 30 days before being permanently deleted.",
+    "relevant_context": "Upon cancellation, files remain accessible in read-only mode for 30 days before being permanently deleted.",
+    "relevant_source": "product_faq.txt"
+  },
+  {
+    "question": "What operating systems does CloudSync Pro support?",
+    "ground_truth": "CloudSync Pro is available on Windows, macOS, Linux, iOS, and Android.",
+    "relevant_context": "CloudSync Pro is available on Windows, macOS, Linux, iOS, and Android.",
+    "relevant_source": "product_faq.txt"
+  },
+  {
+    "question": "How much RAM is required to run the CloudSync Pro desktop client?",
+    "ground_truth": "At least 4GB of RAM is required.",
+    "relevant_context": "CloudSync Pro requires at least 4GB of RAM and 500MB of free disk space for the desktop client.",
+    "relevant_source": "product_faq.txt"
+  },
+  {
+    "question": "At what storage usage percentage does CloudSync Pro send an alert email?",
+    "ground_truth": "An email notification is sent at 90% of the storage limit.",
+    "relevant_context": "Users receive an email notification when they reach 90% of their storage limit.",
+    "relevant_source": "product_faq.txt"
+  },
+  {
+    "question": "What is the capital of France?",
+    "ground_truth": "I don't know based on the provided documents.",
+    "relevant_context": "",
+    "relevant_source": ""
+  }
+]

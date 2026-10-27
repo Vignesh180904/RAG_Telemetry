@@ -1,0 +1,4 @@
+# Original embedding backend (EMBEDDING_BACKEND=sentence-transformers). Pulls in torch.
+# On Windows with Application Control / Smart App Control, `import torch` can fail with WinError 4551.
+# If that happens, use EMBEDDING_BACKEND=ollama or requirements-embeddings-onnx.txt instead.
+sentence-transformers==3.1.1

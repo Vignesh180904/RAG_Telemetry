@@ -1,0 +1,4 @@
+# Torch-free local embeddings + optional cross-encoder reranker via ONNX Runtime
+# (EMBEDDING_BACKEND=fastembed, RERANKER=cross-encoder). Downloads models from HuggingFace on first use.
+# Installed and imported in the sandbox (fastembed 0.9.0), but model download/inference NOT verified there.
+fastembed>=0.4,<1

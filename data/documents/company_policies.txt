@@ -1,0 +1,31 @@
+Company Policies Handbook
+
+Refund Policy
+The company's refund policy allows customers to return any product within 30 days of purchase for a full refund. Items must be unused and in their original packaging. Refunds are processed within 5 to 7 business days after the returned item is received by our warehouse. Digital products and gift cards are non-refundable.
+
+Warranty Policy
+All hardware products come with a one-year manufacturer warranty covering manufacturing defects. The warranty does not cover accidental damage, water damage, or normal wear and tear. To claim a warranty repair, customers must provide proof of purchase and contact support within the warranty period.
+
+Leave Policy
+Full-time employees are entitled to 20 paid leave days per calendar year, in addition to public holidays. Unused leave days can be carried over to the next year up to a maximum of 5 days. Sick leave is separate and provides up to 10 paid sick days per year. Maternity leave is 26 weeks and paternity leave is 2 weeks, both fully paid.
+
+Working Hours
+Standard working hours are from 9:00 AM to 6:00 PM, Monday through Friday, with a one-hour lunch break. Employees may request flexible working hours with manager approval, allowing a start time between 7:00 AM and 10:00 AM.
+
+Remote Work Policy
+Employees may work remotely up to 3 days per week. Fully remote arrangements require director-level approval. Remote employees must be available on company communication tools during core hours of 11:00 AM to 4:00 PM.
+
+Expense Reimbursement
+Business-related expenses such as travel, client meals, and approved software subscriptions are reimbursable. Employees must submit receipts within 30 days of the expense. Reimbursements are paid out with the next payroll cycle after approval.
+
+Code of Conduct
+Employees are expected to treat colleagues, customers, and partners with respect and professionalism. Harassment, discrimination, and retaliation of any kind are strictly prohibited and may result in termination. Employees must report any violations to HR immediately.
+
+Data Privacy Policy
+The company collects only the personal data necessary to provide its services. Customer data is encrypted at rest and in transit. Data is never sold to third parties. Customers can request deletion of their personal data at any time by contacting privacy@company.com.
+
+IT Security Policy
+All employees must use company-approved password managers and enable two-factor authentication on work accounts. Company laptops are encrypted by default. Employees must report lost or stolen devices to IT within 24 hours.
+
+Office Locations
+The company's headquarters is located in Chennai, Tamil Nadu, India. There is a secondary office in Bengaluru focused on engineering, and a small support office in Singapore serving APAC customers.

@@ -1,0 +1,61 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run FastAPI Server",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "app.main:app",
+                "--reload",
+                "--host",
+                "127.0.0.1",
+                "--port",
+                "8000"
+            ],
+            "jinja": true,
+            "justMyCode": true
+        },
+        {
+            "name": "Run Evaluation (baseline vs advanced)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/evaluate.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--mode",
+                "compare",
+                "-v"
+            ]
+        },
+        {
+            "name": "Run Pytest Tests",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "tests",
+                "-q"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Run live model tests (Ollama)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "tests/integration",
+                "-v"
+            ],
+            "env": {
+                "RUN_LIVE_TESTS": "1"
+            },
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>RAG System</title>
+<style>
+  body { font-family: -apple-system, Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 16px; color: #1a1a1a; }
+  h1 { font-size: 22px; }
+  section { margin-bottom: 28px; padding: 16px; border: 1px solid #ddd; border-radius: 8px; }
+  input[type=text] { width: 70%; padding: 8px; }
+  button { padding: 8px 16px; margin-left: 8px; cursor: pointer; }
+  .chunk { background: #f7f7f7; border-left: 3px solid #888; padding: 8px 12px; margin: 8px 0; font-size: 14px; }
+  .score { color: #555; font-size: 12px; }
+  .answer { background: #eef6ff; padding: 12px; border-radius: 6px; font-size: 16px; }
+  .latency { font-size: 13px; color: #555; margin-top: 8px; }
+  #status { font-size: 14px; color: #555; }
+</style>
+</head>
+<body>
+
+<h1>RAG System — Upload, Ask, Inspect</h1>
+
+<section>
+  <h3>1. Upload a document</h3>
+  <input type="file" id="fileInput" accept=".pdf,.txt,.docx" />
+  <button onclick="uploadFile()">Upload</button>
+  <p id="uploadStatus"></p>
+</section>
+
+<section>
+  <h3>2. Ask a question</h3>
+  <input type="text" id="questionInput" placeholder="e.g. What is the refund policy?" />
+  <button onclick="askQuestion()">Ask</button>
+  <p id="status"></p>
+</section>
+
+<section id="answerSection" style="display:none;">
+  <h3>Answer</h3>
+  <div class="answer" id="answerText"></div>
+  <div class="latency" id="latencyText"></div>
+</section>
+
+<section id="chunksSection" style="display:none;">
+  <h3>Retrieved Chunks</h3>
+  <div id="chunksList"></div>
+</section>
+
+<section id="documentsSection">
+  <h3>Documents in Store</h3>
+  <button onclick="loadDocuments()">Refresh</button>
+  <pre id="documentsList"></pre>
+</section>
+
+<script>
+// Same origin when served by the API at "/"; falls back to localhost when the file is opened directly.
+const API_BASE = location.protocol.startsWith("http") ? location.origin : "http://localhost:8000";
+const errMsg = (d, fallback) => (d && d.error && d.error.message) || (d && d.detail) || fallback;
+
+async function uploadFile() {
+  const fileInput = document.getElementById("fileInput");
+  if (!fileInput.files.length) { alert("Choose a file first."); return; }
+  const formData = new FormData();
+  formData.append("file", fileInput.files[0]);
+  document.getElementById("uploadStatus").innerText = "Uploading...";
+  try {
+    const res = await fetch(`${API_BASE}/documents/upload`, { method: "POST", body: formData });
+    const data = await res.json();
+    if (!res.ok) throw new Error(errMsg(data, "Upload failed"));
+    document.getElementById("uploadStatus").innerText =
+      `"${data.filename}": ${data.status} -> ${data.chunks_created} chunks (total in store: ${data.total_chunks_in_store})${data.message ? " - " + data.message : ""}`;
+    loadDocuments();
+  } catch (err) {
+    document.getElementById("uploadStatus").innerText = "Error: " + err.message;
+  }
+}
+
+async function askQuestion() {
+  const question = document.getElementById("questionInput").value.trim();
+  if (!question) return;
+  document.getElementById("status").innerText = "Thinking...";
+  try {
+    const res = await fetch(`${API_BASE}/query`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(errMsg(data, "Query failed"));
+
+    document.getElementById("answerSection").style.display = "block";
+    const cites = (data.citations || []).map(c => `[${c.id}] ${c.source}${c.page ? ", p. " + c.page : ""}`).join("  ");
+    document.getElementById("answerText").innerText = data.answer + (cites ? "\n\nSources: " + cites : "") +
+      `\n\nRoute: ${data.route} / ${data.complexity || "-"} | answer from: ${data.final_from}` +
+      (data.verification ? ` | verification: ${data.verification.verdict} (${data.verification.method})` : "") +
+      ` | path: ${data.steps.map(s => s.node).join(" > ")}`;
+    document.getElementById("latencyText").innerText =
+      `Retrieval: ${data.latency_ms.retrieval_ms} ms | LLM: ${data.latency_ms.llm_ms} ms | Total: ${data.latency_ms.total_ms} ms`;
+
+    document.getElementById("chunksSection").style.display = "block";
+    const chunksList = document.getElementById("chunksList");
+    chunksList.innerHTML = "";
+    data.retrieved_chunks.forEach((c) => {
+      const div = document.createElement("div");
+      div.className = "chunk";
+      // textContent (not innerHTML): document text is untrusted and must never be rendered as HTML.
+      const head = document.createElement("div");
+      head.className = "score";
+      head.textContent = `[${c.citation}] ${c.source}${c.page ? " p." + c.page : ""} | chunk #${c.chunk_index} | dense: ${c.score} | bm25: ${c.sparse_score} | found by: ${(c.found_by || []).join("+")}`;
+      const body = document.createElement("div");
+      body.textContent = c.text;
+      div.append(head, body);
+      chunksList.appendChild(div);
+    });
+    document.getElementById("status").innerText = "";
+  } catch (err) {
+    document.getElementById("status").innerText = "Error: " + err.message;
+  }
+}
+
+async function loadDocuments() {
+  try {
+    const res = await fetch(`${API_BASE}/documents`);
+    const data = await res.json();
+    document.getElementById("documentsList").innerText = JSON.stringify(data, null, 2);
+  } catch (err) {
+    document.getElementById("documentsList").innerText = "Error: " + err.message;
+  }
+}
+
+loadDocuments();
+</script>
+
+</body>
+</html>

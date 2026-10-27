@@ -1,0 +1,37 @@
+Product FAQ - CloudSync Pro
+
+What is CloudSync Pro?
+CloudSync Pro is a file synchronization and backup application that automatically syncs your files across all your devices and keeps encrypted backups in the cloud.
+
+Pricing Plans
+CloudSync Pro offers three plans: the Basic plan at $5 per month with 100GB storage, the Pro plan at $12 per month with 1TB storage, and the Business plan at $25 per user per month with unlimited storage and team collaboration features.
+
+Supported Platforms
+CloudSync Pro is available on Windows, macOS, Linux, iOS, and Android. Files sync automatically across all installed devices within a few seconds of a change.
+
+Data Encryption
+All files are encrypted using AES-256 encryption both during transfer and while stored on our servers. Only the account owner holds the decryption keys, following a zero-knowledge encryption model.
+
+Offline Access
+Files marked as "available offline" are stored locally and remain accessible without an internet connection. Changes made offline sync automatically once the device reconnects.
+
+File Version History
+CloudSync Pro keeps up to 30 days of version history for every file on the Pro and Business plans, and 7 days on the Basic plan. Users can restore any previous version from the version history panel.
+
+Sharing and Collaboration
+Users can share files and folders via a secure link with optional password protection and expiration dates. Business plan users can set granular permissions, including view-only, comment, and edit access.
+
+Storage Limit Alerts
+Users receive an email notification when they reach 90% of their storage limit, with the option to upgrade their plan directly from the notification.
+
+Customer Support
+Support is available via email for all plans, with live chat support included in the Pro and Business plans. Business plan customers additionally get a dedicated account manager and priority phone support.
+
+Account Cancellation
+Users can cancel their subscription at any time from the account settings page. Upon cancellation, files remain accessible in read-only mode for 30 days before being permanently deleted.
+
+System Requirements
+CloudSync Pro requires at least 4GB of RAM and 500MB of free disk space for the desktop client. An active internet connection is required for initial setup and ongoing synchronization.
+
+Two-Factor Authentication
+CloudSync Pro supports two-factor authentication using an authenticator app or SMS codes. Enabling two-factor authentication is strongly recommended and can be turned on from the security settings page.

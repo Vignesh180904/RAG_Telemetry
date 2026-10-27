@@ -1,0 +1,37 @@
+# Core dependencies -- NO torch. Versions were validated together on Python 3.12 (Linux sandbox);
+# re-validate on your Windows venv with:  python -m pytest -q   (see README "Verify on your machine").
+# Python 3.12 is required: numpy 1.26.4 has no wheels for 3.13 and would try to compile from source.
+
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pydantic==2.9.2
+pydantic-settings==2.5.2
+python-dotenv==1.0.1
+python-multipart==0.0.9
+requests==2.32.3
+
+# Ingestion
+pypdf==4.3.1
+python-docx==1.1.2
+
+# Vector database
+numpy==1.26.4
+chromadb==0.5.4        # 0.5.5 needs chroma-hnswlib 0.7.6, which has NO Windows wheels (needs a C++ compiler)
+posthog>=2.4,<6        # chromadb 0.5.x breaks with posthog>=6 ("capture() takes 1 positional argument")
+
+# Telemetry
+opentelemetry-api==1.27.0
+opentelemetry-sdk==1.27.0
+
+# Orchestration (tested: langchain-core 1.7.0, langgraph 1.2.17)
+langchain-core>=0.3,<2
+langgraph>=0.2,<2
+
+# Tests
+pytest>=8
+httpx>=0.27
+
+# Embedding backend: pick ONE extra file (see README):
+#   requirements-embeddings-st.txt   sentence-transformers + torch (original; may hit WinError 4551)
+#   requirements-embeddings-onnx.txt fastembed / ONNX Runtime (no torch)
+#   nothing extra                     EMBEDDING_BACKEND=ollama  (uses `ollama pull all-minilm`)

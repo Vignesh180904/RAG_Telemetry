@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+venv/
+.venv/
+.env
+chroma_db/
+outputs/*.json
+outputs/*.csv
+outputs/*.jsonl*
+outputs/evals/
+outputs/eval_index/
+*.log
+.DS_Store
+.pytest_cache/
